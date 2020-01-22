@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Dragon.h"
+#include "Paladin.h"
+#include "Dwarf.h"
+#include "DragonSlayer.h"
+
 /*
 Project 7: Part 1/1
  video: Chapter 4 Part 2 
