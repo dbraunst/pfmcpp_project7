@@ -3,5 +3,5 @@
 
 void HelpfulItem::use(Character *character)
 {
-    //useHelpfulItem(character, this);
+    useHelpfulItem(character, this);
 }
