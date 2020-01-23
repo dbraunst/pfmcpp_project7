@@ -3,6 +3,7 @@
 #include "HelpfulItem.h"
 #include "DefensiveItem.h"
 #include "Character.h"
+#include <assert.h>
 
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
@@ -40,11 +41,13 @@ std::string getCharacterStats(Character* ch)
     str += "    attack damage: " + std::to_string(ch->getAttackDamage()) + "\n";
     str += "    is defending: " + std::string((ch->getIsDefending() ? "true" : "false" )) + "\n";
     str += "    " + std::to_string(ch->getHelpfulItems().size()) + " helpful items,  " + std::to_string(ch->getDefensiveItems().size()) + " defensive items";
+
     return str;
 }
 
-void useDefensiveItem(Character*, Item& item)
+void useDefensiveItem(Character* character, Item& item)
 {
+    std::cout << "using D item\n";
     //dwarves, paladins, and DragonSlayers get extra boosts from defensive item.
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
@@ -64,8 +67,9 @@ void useDefensiveItem(Character*, Item& item)
         //dragons don't need defensive items
     }  
 }
-void useHelpfulItem(Character*, Item* item)
+void useHelpfulItem(Character* character, Item* item)
 {
+    std::cout << "using H item\n";
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
         ch->boostHitPoints(item->getBoost() * 2);
@@ -83,8 +87,9 @@ void useHelpfulItem(Character*, Item* item)
         //dragons don't carry helpful items!
     }
 }
-void useAttackItem(Character*, Item* item)
+void useAttackItem(Character* character, Item* item)
 {
+    std::cout << "using A item\n";
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
         ch->boostAttackDamage(item->getBoost() * 1.5);
