@@ -5,10 +5,13 @@
 #include "Character.h"
 #include <assert.h>
 #include "AttackItem.h"
+#include <stdlib.h>
 
 
-std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
+std::vector<std::unique_ptr<Item>> makeHelpfulItems()
 {
+    int num = rand() % 3;
+
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
@@ -20,8 +23,10 @@ std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
     return items;
 }
 
-std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num)
+std::vector<std::unique_ptr<Item>> makeDefensiveItems()
 {
+    int num = rand() % 3;
+
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
@@ -33,8 +38,10 @@ std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num)
     return items;
 }
 
-std::vector<std::unique_ptr<Item>> makeAttackItems(int num)
+std::vector<std::unique_ptr<Item>> makeAttackItems()
 {
+    int num = rand() % 3;
+    
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
