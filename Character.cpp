@@ -1,6 +1,7 @@
 #include "Character.h"
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
@@ -101,15 +102,15 @@ void Character::attackInternal(Character& other)
       */
         hitPoints = *initialHitPoints;
         armor = *initialArmorLevel;
-        boostHitPoints(getHP() * 0.1);
-        boostArmor(getArmorLevel() * 0.1);
-        boostAttackDamage(getAttackDamage() * 0.1);
+        boostHitPoints(ceil(getHP() * 0.1));
+        boostArmor(ceil(getArmorLevel() * 0.1));
+        boostAttackDamage(ceil(getAttackDamage() * 0.1));
         *initialHitPoints = getHP();
         *initialArmorLevel = getArmorLevel();
         *initialAttackDamage = getAttackDamage();
 
         //assert(false);
-        std::cout << getName() << " defeated " << other.getName() << " and leveled up!" << std::endl;        
+        std::cout << getName() << " defeated " << other.getName() << " and leveled up!\n" << std::endl;        
     }
 }
 
