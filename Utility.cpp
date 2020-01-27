@@ -7,7 +7,14 @@
 #include "AttackItem.h"
 #include <stdlib.h>
 
+/* .   Tried to forward declare but because UseItem functions call functions from the classes I think it has to be done via include*/
 
+//^^ the above was my previous comment to you but then I realized I wasn't forward declaring WITH the inheritance. :) 
+
+struct Dwarf : public Character{};
+struct Paladin : public Character{};
+struct DragonSlayer : public Character{};
+struct Dragon : public Character{};
 
 std::vector<std::unique_ptr<Item>> makeHelpfulItems()
 {

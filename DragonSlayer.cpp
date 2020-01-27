@@ -10,7 +10,6 @@ DragonSlayer::DragonSlayer(std::string name_, int hp, int armor_) :
     {
         defensiveItems = makeDefensiveItems();
         helpfulItems = makeHelpfulItems();
-        attackItems = makeAttackItems();
     }
 
 const std::string& DragonSlayer::getName()
@@ -27,16 +26,7 @@ void DragonSlayer::attack(Character& other)
         //assert(false);
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so they should USE their attack item before attacking the dragon... 
-        //
-        for( auto& item : attackItems )
-        {
-            if( auto* attackItem = dynamic_cast<AttackItem*>(item.get()) )
-            {
-                attackItem->use(this);
-                item.reset(); //can only be used once!
-                break;
-            }
-        }
+        attackItem.use(this);
 
         while( dragon->getHP() > 0 )
         {
