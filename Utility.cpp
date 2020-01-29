@@ -11,11 +11,6 @@
 
 //^^ the above was my previous comment to you but then I realized I wasn't forward declaring WITH the inheritance. :) 
 
-struct Dwarf : public Character{};
-struct Paladin : public Character{};
-struct DragonSlayer : public Character{};
-struct Dragon : public Character{};
-
 std::vector<std::unique_ptr<Item>> makeHelpfulItems()
 {
     int num = rand() % 3;
@@ -80,15 +75,18 @@ void useDefensiveItem(Character* character, Item& item)
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
         ch->boostArmor( item.getBoost() * 1.1 );
+        std::cout << ch->getName() << " had their armor boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<Paladin*>(character) )
     {
         //same with paladins
         ch->boostArmor( item.getBoost() * 1.3 );
+        std::cout << ch->getName() << " had their armor boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<DragonSlayer*>(character))
     {
         ch->boostArmor( item.getBoost() * 1.5 );
+        std::cout << ch->getName() << " had their armor boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<Dragon*>(character) )
     {
@@ -100,14 +98,17 @@ void useHelpfulItem(Character* character, Item* item)
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
         ch->boostHitPoints(item->getBoost() * 2);
+        std::cout << ch->getName() << " had their hitpoints boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<Paladin*>(character) )
     {
         ch->boostHitPoints(item->getBoost() * 1.5);
+        std::cout << ch->getName() << " had their hitpoints boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<DragonSlayer*>(character))
     {
         ch->boostHitPoints(item->getBoost() * 1.25);
+        std::cout << ch->getName() << " had their hitpoints boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<Dragon*>(character) )
     {
@@ -119,15 +120,18 @@ void useAttackItem(Character* character, Item* item)
     if( auto* ch = dynamic_cast<Dwarf*>(character) )
     {
         ch->boostAttackDamage(item->getBoost() * 1.5);
+        std::cout << ch->getName() << " had their attack boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<Paladin*>(character) )
     {
         ch->boostAttackDamage(item->getBoost() * 1.33);
+        std::cout << ch->getName() << " had their attack boosted" << std::endl;
     }
     else if( auto* ch = dynamic_cast<DragonSlayer*>(character))
     {
         //assert(false);
         ch->boostAttackDamage(ch->getAttackDamage() * 10);
+        std::cout << ch->getName() << " had their attack boosted" << std::endl;
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so their attack item should boost their attack damage by a factor of 10
         //this means you need to GET the attack damage, multiply it by the item's boost, and BOOST the attackDamage with that multiplied value.  
