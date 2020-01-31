@@ -12,10 +12,8 @@
 #include "Dragon.h"
 #include "DragonSlayer.h"
 
-std::vector<std::unique_ptr<Item>> makeHelpfulItems()
+std::vector<std::unique_ptr<Item>> makeHelpfulItems(int num)
 {
-    int num = rand() % 3;
-
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
@@ -27,10 +25,8 @@ std::vector<std::unique_ptr<Item>> makeHelpfulItems()
     return items;
 }
 
-std::vector<std::unique_ptr<Item>> makeDefensiveItems()
+std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num)
 {
-    int num = rand() % 3;
-
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
@@ -42,10 +38,8 @@ std::vector<std::unique_ptr<Item>> makeDefensiveItems()
     return items;
 }
 
-std::vector<std::unique_ptr<Item>> makeAttackItems()
+std::vector<std::unique_ptr<Item>> makeAttackItems(int num)
 {
-    int num = rand() % 3;
-    
     std::vector<std::unique_ptr<Item>> items;
     
     while( num-- >= 0 )
