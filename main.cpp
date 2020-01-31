@@ -1,6 +1,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Dragon.h"
+#include "Paladin.h"
+#include "Dwarf.h"
+#include "DragonSlayer.h"
+
 /*
 Project 7: Part 1/1
  video: Chapter 4 Part 2 
@@ -67,6 +72,7 @@ int main()
 
     paladin.defend();
     dragon.attack( paladin );
+
     dwarf.attack( dragon );
     paladin.attack( dragon ); //can't, he's dead
     
